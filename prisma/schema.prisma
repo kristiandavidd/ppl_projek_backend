@@ -14,17 +14,17 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
-  posts Post[]
+  // posts Post[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
+// model Post {
+//   id        Int     @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   published Boolean @default(false)
+//   author    User    @relation(fields: [authorId], references: [id])
+//   authorId  Int
+// }
 
 model Operator{
   nip String @id @default(cuid())
@@ -42,3 +42,34 @@ model Operator{
   provinsi String
   role String
 }
+
+model pkl{
+  id Int @id @default(autoincrement())
+  status String? @db.VarChar(255)
+  beritaAcara Bytes? @db.ByteA
+  nilai String? @db.Char(1)
+}
+
+model irs{
+  id Int @id @default(autoincrement())
+  statusAcc String? @db.VarChar(255)
+  matkul String
+  kelas String? @db.Char(1)
+
+}
+
+model skripsi{
+  id Int @id @default(autoincrement())
+  status String? @db.VarChar(255)
+  beritaAcara Bytes? @db.ByteA
+  nilai String? @db.Char(1)
+}
+
+model khs{
+  id Int @id @default(autoincrement())
+  statusAcc String? @db.VarChar(255)
+  matkul String
+  nilaiMatkul String? @db.Char(1)
+
+}
+
