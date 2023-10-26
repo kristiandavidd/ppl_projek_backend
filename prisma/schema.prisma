@@ -25,3 +25,20 @@ model Post {
   author    User    @relation(fields: [authorId], references: [id])
   authorId  Int
 }
+
+model Operator{
+  nip String @id @default(cuid())
+  nama String? @db.VarChar(255)
+  email String @unique
+  password String
+  programStudi String
+  jenisKelamin String
+  pendidikanTertinggi String
+  statusIkatanKerja String
+  statusAktivitas String
+  nomorHandphone String? @db.VarChar(20)
+  alamat String
+  kabupatenKota String
+  provinsi String
+  role String
+}
